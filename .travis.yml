@@ -74,6 +74,7 @@ script:
 
         # Ensure that IHaskell notebook remains unchanged.
         stack install --stack-yaml=stack-full.yaml
+        stack exec -- ihaskell install --stack
         stack exec -- jupyter nbconvert --to=notebook --execute --stdout notebooks/IHaskell.ipynb > ~/ihaskell-out.ipynb
         diff ~/ihaskell-out.ipynb notebooks/IHaskell.ipynb
     fi
