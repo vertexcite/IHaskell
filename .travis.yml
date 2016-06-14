@@ -50,7 +50,7 @@ before_install:
     fi
 
     # Install nbconvert for testing the notebook
-  - pip install nbconvert
+  - pip install jupyter notebook nbconvert
 
 # This step takes the longest, and is what generates the Stack cache. 
 install:
