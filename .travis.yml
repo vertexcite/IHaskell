@@ -76,6 +76,6 @@ script:
         stack install --stack-yaml=stack-full.yaml
         stack exec -- ihaskell install --stack
         stack exec -- jupyter nbconvert --to=notebook --execute --stdout notebooks/IHaskell.ipynb > ~/ihaskell-out.ipynb
-        diff ~/ihaskell-out.ipynb notebooks/IHaskell.ipynb
+        diff <(grep -v image/png ~/ihaskell-out.ipynb) <(grep -v image/png notebooks/IHaskell.ipynb)
     fi
     
