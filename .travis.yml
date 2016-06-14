@@ -4,7 +4,7 @@ env:
  - DISPLAY=false  RESOLVER=lts-2.22 # Last GHC 7.8 LTS
 
 # Choose a lightweight base image; we provide our own build tools.
-language: c
+language: python
 
 # Enable caching.
 sudo: false
@@ -49,6 +49,9 @@ before_install:
         cd $OLDPWD
     fi
 
+    # Install nbconvert for testing the notebook
+  - pip install nbconvert
+
 # This step takes the longest, and is what generates the Stack cache. 
 install:
   # Set path for pkg-config to find zeromq, otherwise install of zeromq4-haskell fails.
@@ -73,6 +76,5 @@ script:
         stack install --stack-yaml=stack-full.yaml
         stack exec -- jupyter nbconvert --to=notebook --execute --stdout notebooks/IHaskell.ipynb > ~/ihaskell-out.ipynb
         diff ~/ihaskell-out.ipynb notebooks/IHaskell.ipynb
-        false
     fi
     
