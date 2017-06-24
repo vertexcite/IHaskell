@@ -14,8 +14,13 @@ packages:
     - ./ihaskell-display/ihaskell-plot
     - ./ihaskell-display/ihaskell-static-canvas
     - ./ihaskell-display/ihaskell-widgets
-resolver: lts-8.19
-extra-deps: []
+resolver: lts-8.17
+extra-deps:
+  - tensorflow-0.1.0.2
+  - tensorflow-proto-0.1.0.0
+  - tensorflow-core-ops-0.1.0.0
+  - tensorflow-ops-0.1.0.0
+  - tensorflow-opgen-0.1.0.0
 flags:
   ihaskell:
     binpkgdb: false
